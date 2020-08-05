@@ -1,5 +1,10 @@
 /data
 /exp
 /test_tmp
+/test_data
 .DS_Store
 out.txt
+
+sid
+steps
+utils
