@@ -1,16 +1,17 @@
 test=$1
+num_jobs=4
 
 local/make_voxceleb1_v2.pl $test test test_data/data
 
 trials=test_data/data/trials
 
-./steps/make_mfcc.sh --write-utt2num-frames true --mfcc-config conf/mfcc.conf --nj 1 --cmd "$train_cmd" test_data/data test_data/make_mfcc test_data/mfcc
+./steps/make_mfcc.sh --write-utt2num-frames true --mfcc-config conf/mfcc.conf --nj $num_jobs --cmd "$train_cmd" test_data/data test_data/make_mfcc test_data/mfcc
 ./utils/fix_data_dir.sh test_data/data
 
-./sid/compute_vad_decision.sh --nj 1 --cmd "$train_cmd" test_data/data test_data/make_vad test_data/vad
+./sid/compute_vad_decision.sh --nj $num_jobs --cmd "$train_cmd" test_data/data test_data/make_vad test_data/vad
 ./utils/fix_data_dir.sh test_data/data
 
-./sid/extract_ivectors.sh --cmd "$train_cmd" --nj 1 exp/extractor test_data/data test_data/ivectors
+./sid/extract_ivectors.sh --cmd "$train_cmd" --nj $num_jobs exp/extractor test_data/data test_data/ivectors
 
 $train_cmd exp/scores/log/test_scoring.log \
     ivector-plda-scoring --normalize-length=true \
