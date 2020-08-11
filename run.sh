@@ -8,6 +8,10 @@
 # See ../README.txt for more info on data required.
 # Results (mostly equal error-rates) are inline in comments below.
 
+# TODO No.2
+voxceleb1_root=~/Documents/v1
+
+
 . ./path.sh
 mfccdir=`pwd`/exp/mfcc
 vaddir=`pwd`/exp/mfcc
@@ -18,10 +22,8 @@ then
   rm -r ./exp
 fi
 
-# The trials file is downloaded by local/make_voxceleb1_v2.pl.
 voxceleb1_trials=data/voxceleb1_test/trials
-voxceleb1_root=~/Documents/v1
-voxceleb2_root=~/Documents/v2
+# voxceleb2_root=~/Documents/v2
 
 stage=0
 
