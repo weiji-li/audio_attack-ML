@@ -1,6 +1,11 @@
 test=$1
 num_jobs=4
 
+if [ -n "$(ls -A test_data 2>/dev/null)" ]
+then
+  rm -r ./test_data
+fi
+
 local/make_voxceleb1_v2.pl $test test test_data/data
 
 trials=test_data/data/trials
