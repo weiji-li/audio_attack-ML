@@ -1,12 +1,14 @@
 test=$1
-num_jobs=4
+num_jobs=1
 
 if [ -n "$(ls -A test_data 2>/dev/null)" ]
 then
   rm -r ./test_data
 fi
 
-local/make_voxceleb1_v2.pl $test test test_data/data
+# local/make_voxceleb1_v2.pl $test test test_data/data
+python kaldiHelper.py
+# ./utils/fix_data_dir.sh test_data/data
 
 trials=test_data/data/trials
 
@@ -23,7 +25,7 @@ $train_cmd exp/scores/log/test_scoring.log \
     "ivector-copy-plda --smoothing=0.0 exp/ivectors_train/plda - |" \
     "ark:ivector-subtract-global-mean exp/ivectors_train/mean.vec scp:test_data/ivectors/ivector.scp ark:- | transform-vec exp/ivectors_train/transform.mat ark:- ark:- | ivector-normalize-length ark:- ark:- |" \
     "ark:ivector-subtract-global-mean exp/ivectors_train/mean.vec scp:test_data/ivectors/ivector.scp ark:- | transform-vec exp/ivectors_train/transform.mat ark:- ark:- | ivector-normalize-length ark:- ark:- |" \
-    "cat '$trials' | cut -d\  -f 1,2 |" test_data/scores || exit 1;
+    "cat '$trials' | cut -d\  -f 1,2 |" test_data/scores
 
 eer=`compute-eer <(local/prepare_for_eer.py $trials test_data/scores) 2> /dev/null`;
 echo “$eer%”;
