@@ -1,7 +1,11 @@
-/data
-/exp
-/test_tmp
-/test_data
+data
+exp
+test_tmp
+test_data
+test
+tmp
+env
+.vscode
 .DS_Store
 out.txt
 

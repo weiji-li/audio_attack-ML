@@ -1,23 +1,26 @@
-import numpy as np
 import os
 import time
 import random
 import subprocess
-from scipy.io.wavfile import write
+import shutil
+import shlex
 
 class kaldiHelper():
 
-    def __init__(self, tmp_dir=None, test_dir=None):
+    def __init__(self, tmp_dir=None, test_dir=None, cur_dir=None):
         self.tmp_dir = tmp_dir
         self.test_dir = test_dir
+        self.cur_dir = os.path.abspath(cur_dir) if cur_dir else os.path.abspath(".")
 
-        if not os.path.exists(tmp_dir):
-            os.mkdir(tmp_dir)
+        if os.path.exists(tmp_dir):
+            shutil.rmtree(tmp_dir) 
+
+        os.mkdir(tmp_dir)
         
 
 
     def data_prepare(self, audio_list, utt_id_list=None, spk_id_list=None, audio_dir=None, debug=False):
-
+        print("------------ python Kaldi Helper: data_prepare ------------")
         data_dir = self.tmp_dir + "/data"
 
         if not os.path.exists(data_dir):
@@ -54,7 +57,6 @@ class kaldiHelper():
                     wav_file.write(self.test_dir + "/test/wav/" + spk_id + "/" + dir_id + "/" + f)
                     wav_file.write("\n")
 
-
             spk2utt_file.write("\n")
         
         test_size = len(audio_list)
@@ -66,28 +68,26 @@ class kaldiHelper():
             trials.write(test + "\n")
         
         # fix dir
-        ''' Note: every time we execuate the shell script in utils/, steps/ or sid/, 
-            we need to change the current directory to pre_model_dir.
-            To avoid mistask, we should make all the dirs (e.g., audio_dir, log_dir) in absoulute path
-        '''
-        # current_dir = os.path.abspath(os.curdir)
-        # os.chdir(self.pre_model_dir)
+        # self.fix_data_dir()
 
-        # fix_dir_command = self.pre_model_dir + "/utils/fix_data_dir.sh " + audio_dir
-        # args = shlex.split(fix_dir_command)
-        # p = subprocess.Popen(args) if debug else subprocess.Popen(args, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        # p.wait()
-
-        # os.chdir(current_dir)
-
-        self.fix_data_dir()
-
+        print("------------ python Kaldi Helper: data_prepare finished ------------")
         return utt_id_list
 
     def fix_data_dir(self, tmp_dir=None):
-        tmp_dir = tmp_dir if tmp_dir else self.tmp_dir + "/data"
-        subprocess.call(["./utils/fix_data_dir.sh", tmp_dir])
-        print("done")
+        debug = False
+        current_dir = os.path.abspath(os.curdir)
+        os.chdir(self.cur_dir)
+
+        fix_dir_command = self.cur_dir + "/utils/fix_data_dir.sh " + self.tmp_dir + "/data"
+        args = shlex.split(fix_dir_command)
+        print(args)
+        p = subprocess.Popen(args) if debug else subprocess.Popen(args, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        p.wait()
+
+        # os.chdir(current_dir)
+
+    def make_mfcc(self):
+        print("------------ python Kaldi Helper: make_mfcc ------------")
     
 
 if __name__ == "__main__":
@@ -103,5 +103,5 @@ if __name__ == "__main__":
         'test_impulse-test-test_9 target', 
         'test_impulse-test-test_10 nontarget'
     ]
-    helper = kaldiHelper("./test_data", "./test_tmp")
+    helper = kaldiHelper("./tmp", "./test")
     helper.data_prepare(audio_list)
