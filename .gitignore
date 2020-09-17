@@ -5,8 +5,10 @@ test_data
 test
 tmp
 env
+new_test
+
 .vscode
-.DS_Store
+*.DS_Store
 out.txt
 
 sid
