@@ -13,8 +13,8 @@
 2. Make a test_tmp folder
     - It should have a test/wav folder which contains all your test audio files 
 
-    ![](2020-08-11-23-43-22.png)
+    ![](./image/2020-08-11-23-43-22.png)
     - And it should have a `voxceleb1_test_v2.txt` which contains all the audio files you want to score. Remember to the first character in the line means whether these two audio comes from one speaker
 
-    ![](2020-08-11-23-44-46.png)
+    ![](./image/2020-08-11-23-44-46.png)
 3. run `source ./prepare.sh && source ./test.sh`
