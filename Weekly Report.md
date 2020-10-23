@@ -1,6 +1,45 @@
 # Weekly Report
 Victor Li's weekly update in each week (report from previous week coming soon).
 
+## 9.24 - 10.22
+### For this week:
+1. Read one paper and one blog on audio and adversarial attack
+   1. formatted notes here (https://docs.google.com/document/d/15i8fyfTacinSDe8HwBDyj22knmqGT-UjY289vozt1C0/edit)
+2. Start writing code for a simple gradient-descent attack (follow other's code)
+
+### For next week:
+1. Finish code for a simple gradient-descent attack
+2. Read two more papers
+
+### Notes:
+1. Helloworld adversarial attack
+2. FGSM attack (simplest) -> projected gradient descent (max depth constraints) -> 
+3. Tutorial -- https://adversarial-ml-tutorial.org/
+
+### Meeting:
+
+## 9.17 - 9.24
+### For this week:
+1. Read the paper "Who is Real Bob? Adversarial Attacks on Speaker Recognition Systems"
+2. Try to take a formatted notes (https://docs.google.com/document/d/15i8fyfTacinSDe8HwBDyj22knmqGT-UjY289vozt1C0/edit)
+
+### For next week:
+
+### Notes:
+1. The algorithms in paper is quite hard to me right now. 
+
+### Meeting:
+1. biweekly
+2. baseline: replicate existing attacks
+3. RNN, CNN
+4. batch gradient descent 
+5. Citation and the equation 
+6. Experiment the code in backend
+7. Three passes: 
+   1. abstract + intro + conclusion
+   2. main + results
+   3. methods + techniques
+
 ## 9.10 - 9.17
 ### For this week:
 1. Finsih the `kaldihelper.py` part in the GD attack system;
