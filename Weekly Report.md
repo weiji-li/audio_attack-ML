@@ -1,6 +1,22 @@
 # Weekly Report
 Victor Li's weekly update in each week (report from previous week coming soon).
 
+## 10.22 - 11.5
+### For this week:
+1. Finish a very simple gradient-descent attack
+   - It could bascially work, but not achieve a good result
+   - It includes a gradient-descent process, a gradient-estimation process and the previous kaldi wrapper I made
+2. Read one presentation and one paper on audio and adversarial attack
+   - formatted notes here (https://docs.google.com/document/d/15i8fyfTacinSDe8HwBDyj22knmqGT-UjY289vozt1C0/edit)
+
+### For next week:
+1. Think about some ways to improve the gradient-descent 
+2. Continue my paper reading plan
+
+### Notes:
+
+### Meeting:
+
 ## 9.24 - 10.22
 ### For this week:
 1. Read one paper and one blog on audio and adversarial attack
