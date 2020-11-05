@@ -8,7 +8,8 @@ Victor Li's weekly update in each week (report from previous week coming soon).
    - It includes a gradient-descent process, a gradient-estimation process and the previous kaldi wrapper I made
 2. Read one presentation and one paper on audio and adversarial attack
    - formatted notes here (https://docs.google.com/document/d/15i8fyfTacinSDe8HwBDyj22knmqGT-UjY289vozt1C0/edit)
-
+3. Took a look at the FGSM attack
+    - It relates to Neural Network stuffs that I am just learning in my ML class. I am thinking of making use of it in my audio attack. 
 ### For next week:
 1. Think about some ways to improve the gradient-descent 
 2. Continue my paper reading plan
@@ -16,6 +17,8 @@ Victor Li's weekly update in each week (report from previous week coming soon).
 ### Notes:
 
 ### Meeting:
+1. Looking at more directions on Audio 
+2. Neal might work on some audio-related projects
 
 ## 9.24 - 10.22
 ### For this week:
