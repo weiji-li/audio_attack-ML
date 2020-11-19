@@ -21,27 +21,32 @@ import copy
 import subprocess
 
 class Attack():
-    def __init__(self):
-        audio_list = [
-            {
-                'id': 'test_attack-tmp-test',
-                'label': False,
-            },  
-        ]
+    def __init__(self, audio_list):
+        self.audio_list = audio_list
+        
         self.audio_path = "./new_test/test_attack/tmp/"
         self.helper = kaldi(tmp_dir = "./tmp", test_dir = "./new_test", debug = False)
-        self.helper.data_prepare(audio_list)
+        self.helper.data_prepare(self.audio_list)
 
-        init_score = self.helper.run()
-        print(init_score)
-        self.delta = np.abs(init_score / 10)
-        self.threshold = init_score + self.delta
+        # init_score = self.helper.run()
+        # print(init_score)
+        # self.delta = np.abs(init_score / 10)
+        # print(self.delta)
+        # self.threshold = init_score + self.delta
+        # print(self.threshold)
+        self.threshold = 0.
         self.adver_thresh = 0.1
         self.debug = False
 
+    def fgsm_attack(self):
+        audio_path = self.audio_path
+        fs, audio = read(audio_path + "test.wav")
+        grad = self.get_grad(audio)
+        # TODO: transform the data (line 71)
+
     def loss_fn(self, audios=None, fs=16000, bits_per_sample=16, n_jobs=10, debug=False):
         score = self.helper.run()
-        # score_max = np.max(score, axis=1, keepdims=True) # (samples_per_draw + 1, 1)
+        print(score)
         loss = np.maximum(self.threshold - score, -1 * self.adver_thresh)
         return loss, score # loss is (samples_per_draw + 1, 1)
 
@@ -53,15 +58,20 @@ class Attack():
             audio = audio.T
         else:
             pass
+
+        print(audio.shape)
         
         N = audio.size
 
-        noise_pos = np.random.normal(size=(N, samples_per_draw // 2))
+        noise_pos = np.random.normal(size=(N, 1))
         noise = np.concatenate((noise_pos, -1. * noise_pos), axis=1)
         noise = np.concatenate((np.zeros((N, 1)), noise), axis=1)
         noise_audios = sigma * noise + audio
+        print(noise_audios.shape)
+        write(self.audio_path + "test0.wav", fs, noise_audios)
         loss, scores = self.loss_fn(noise_audios, fs=fs, bits_per_sample=bits_per_sample, n_jobs=n_jobs, debug=debug) # loss is (samples_per_draw + 1, 1)
-        # adver_loss = loss[0]
+        adver_loss = loss[0]
+        print(loss.shape)
         # score = scores[0]
         # loss = loss[1:, :]
         # noise = noise[:, 1:]
@@ -102,8 +112,18 @@ class Attack():
 
 
 def main():
-    attack = Attack()
-    attack.attack()
+    audio_list = [
+        {
+            'id': 'test_attack-tmp-test',
+            'label': False,
+        },  
+        {
+            'id': 'test_attack-tmp-test0',
+            'label': False,
+        }
+    ]
+    attack = Attack(audio_list)
+    attack.fgsm_attack()
     # audio_list = [
     #     {
     #         'id': 'test_attack-tmp-test_2',

@@ -1,6 +1,23 @@
 # Weekly Report
 Victor Li's weekly update in each week (report from previous week coming soon).
 
+## 11.5 - 11.19
+### For this week:
+1. Work on the FGSM attack for audio:
+   1. The key part is calculating **Loss** and **Gradient** in a black-box model
+   2. Write down notes for the **Loss** and **Gradient** in an existing attack
+2. Tried to reproduce an existing attack with my own model and data
+3. Read paper: Adversarial Audio Synthesis
+
+### For next week:
+1. Finsih the FGSM attack, look for more effective way for loss and gradient estimation
+2. Continue working on reproducing an existing attack
+
+### Notes:
+
+### Meeting:
+
+
 ## 10.22 - 11.5
 ### For this week:
 1. Finish a very simple gradient-descent attack
@@ -10,6 +27,7 @@ Victor Li's weekly update in each week (report from previous week coming soon).
    - formatted notes here (https://docs.google.com/document/d/15i8fyfTacinSDe8HwBDyj22knmqGT-UjY289vozt1C0/edit)
 3. Took a look at the FGSM attack
     - It relates to Neural Network stuffs that I am just learning in my ML class. I am thinking of making use of it in my audio attack. 
+
 ### For next week:
 1. Think about some ways to improve the gradient-descent 
 2. Continue my paper reading plan
