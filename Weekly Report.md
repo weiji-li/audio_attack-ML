@@ -16,7 +16,8 @@ Victor Li's weekly update in each week (report from previous week coming soon).
 ### Notes:
 
 ### Meeting:
-
+1. Finish a writtern report for adversarial with speaker verification system
+2. Paperwork for credits. 
 
 ## 10.22 - 11.5
 ### For this week:
