@@ -1,6 +1,9 @@
 # Weekly Report
 Victor Li's weekly update in each week (report from previous week coming soon).
 
+## 11.19 - 11.23
+
+
 ## 11.5 - 11.19
 ### For this week:
 1. Work on the FGSM attack for audio:
@@ -18,6 +21,7 @@ Victor Li's weekly update in each week (report from previous week coming soon).
 ### Meeting:
 1. Finish a writtern report for adversarial with speaker verification system
 2. Paperwork for credits. 
+
 
 ## 10.22 - 11.5
 ### For this week:
@@ -39,6 +43,7 @@ Victor Li's weekly update in each week (report from previous week coming soon).
 1. Looking at more directions on Audio 
 2. Neal might work on some audio-related projects
 
+
 ## 9.24 - 10.22
 ### For this week:
 1. Read one paper and one blog on audio and adversarial attack
@@ -55,6 +60,8 @@ Victor Li's weekly update in each week (report from previous week coming soon).
 3. Tutorial -- https://adversarial-ml-tutorial.org/
 
 ### Meeting:
+
+
 
 ## 9.17 - 9.24
 ### For this week:
@@ -77,6 +84,8 @@ Victor Li's weekly update in each week (report from previous week coming soon).
    1. abstract + intro + conclusion
    2. main + results
    3. methods + techniques
+
+
 
 ## 9.10 - 9.17
 ### For this week:
@@ -115,3 +124,117 @@ Victor Li's weekly update in each week (report from previous week coming soon).
 
 ### Meeting:
 - Keep a Weekly report note (which is here)
+
+
+
+## 8.27 - 9.3
+
+### For this week:
+
+### For next week:
+
+### Notes:
+
+### Meeting:
+
+
+## 8.20 - 8.27
+
+### For this week:
+
+### For next week:
+
+### Notes:
+
+### Meeting:
+
+
+## 8.13 - 8.20
+
+### For this week:
+
+### For next week:
+
+### Notes:
+
+### Meeting:
+
+
+## 7.23 - 8.13
+
+### For this week:
+
+### For next week:
+
+### Notes:
+
+### Meeting:
+
+
+## 7.16 - 7.23
+
+### For this week:
+
+### For next week:
+
+### Notes:
+
+### Meeting:
+
+
+## 7.7 - 7.16
+
+### For this week:
+
+### For next week:
+
+### Notes:
+
+### Meeting:
+
+
+## 6.30 - 7.7
+
+### For this week:
+
+### For next week:
+
+### Notes:
+
+### Meeting:
+
+
+## 6.23 - 6.30
+
+### For this week:
+
+### For next week:
+
+### Notes:
+
+### Meeting:
+
+
+## 6.16 - 6.23
+
+### For this week:
+
+### For next week:
+
+### Notes:
+
+### Meeting:
+
+
+## 6.9 - 6.16
+
+### For this week:
+
+### For next week:
+
+### Notes:
+
+### Meeting:
+
+
+# First meeting and plan
