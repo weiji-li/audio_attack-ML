@@ -64,6 +64,7 @@ class kaldiHelper():
             spk2utt_file.write("\n")
         
         test_size = len(audio_list)
+        random.seed(123)
         origin_list = random.sample(utt_id_list, test_size)
 
         trials = open(data_dir + "/trials", "w")
@@ -188,16 +189,16 @@ class kaldiHelper():
 
 def main():
     audio_list = [
-        'test_impulse-test1-test_1 target', 
-        'test_impulse-test1-test_2 nontarget', 
-        'test_impulse-test1-test_3 target', 
-        'test_impulse-test1-test_4 nontarget', 
-        'test_impulse-test1-test_5 target', 
-        'test_impulse-test1-test_6 nontarget', 
-        'test_impulse-test1-test_7 target ', 
-        'test_impulse-test1-test_8 nontarget', 
-        'test_impulse-test1-test_9 target', 
-        'test_impulse-test1-test_10 nontarget'
+        {'id': 'test_background-test1-test_1', 'label':True}, 
+        {'id': 'test_background-test1-test_2', 'label':False}, 
+        {'id': 'test_background-test1-test_3', 'label':True}, 
+        {'id': 'test_background-test1-test_4', 'label':False}, 
+        {'id': 'test_background-test1-test_5', 'label':True}, 
+        {'id': 'test_background-test1-test_6', 'label':False}, 
+        {'id': 'test_background-test1-test_7', 'label':True}, 
+        {'id': 'test_background-test1-test_8', 'label':False}, 
+        {'id': 'test_background-test1-test_9', 'label':True}, 
+        {'id': 'test_background-test1-test_10', 'label':False}, 
     ]
     helper = kaldiHelper(tmp_dir = "./tmp", test_dir = "./new_test")
     helper.data_prepare(audio_list)
@@ -211,5 +212,5 @@ def main():
     for score in scores:
         print("\t".join([score['origin'], score['test'], score['score'], score['label']]))
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
